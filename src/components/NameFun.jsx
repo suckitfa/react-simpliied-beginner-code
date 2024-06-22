@@ -1,6 +1,10 @@
-function MyName() {
+function MyName({ name, age, isProgrammer }) {
+    console.log('isProgrammer = ', isProgrammer)
     return (
-        <h3>Cooper Tang</h3>
+        <div>
+            <h3>{name ? 'Cooper Tang' : name}</h3>
+            <h3>age = {age}</h3>
+        </div>
     )
 }
 
