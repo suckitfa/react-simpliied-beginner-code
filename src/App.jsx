@@ -1,6 +1,7 @@
 import React from 'react'
 import TodoList from './components/TodoList'
 import './App.css'
+import MyName from './components/NameFun'
 function App() {
   const todos = [
     {
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <div>
+      <MyName></MyName>
       <h1>Todo List</h1>
       <TodoList todos={todos}></TodoList>
     </div>
