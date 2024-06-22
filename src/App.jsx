@@ -5,6 +5,7 @@ import MyName from './components/NameFun'
 import userData from './components/UserCard/user.json'
 import UserCard from './components/UserCard'
 import TestUseState from './components/TestUserState'
+import Counter from './components/Counter'
 function App() {
   const todos = [
   ]
@@ -25,6 +26,7 @@ function App() {
       {/* User Card */}
       <UserCard {...userData}></UserCard>
       <TestUseState></TestUseState>
+      <Counter></Counter>
     </div>
   )
 }
