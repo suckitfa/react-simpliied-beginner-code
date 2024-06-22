@@ -5,6 +5,7 @@ function Counter() {
 
     const handleClick = () => {
         setCount(count + 1);
+        console.log('after called setCount ===> ', count)
     }
 
     return (
