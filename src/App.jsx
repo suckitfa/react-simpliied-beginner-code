@@ -4,6 +4,7 @@ import './App.css'
 import MyName from './components/NameFun'
 import userData from './components/UserCard/user.json'
 import UserCard from './components/UserCard'
+import TestUseState from './components/TestUserState'
 function App() {
   const todos = [
   ]
@@ -23,6 +24,7 @@ function App() {
       <TodoList todos={todos}></TodoList>
       {/* User Card */}
       <UserCard {...userData}></UserCard>
+      <TestUseState></TestUseState>
     </div>
   )
 }
