@@ -8,6 +8,7 @@ import TestUseState from './components/TestUserState'
 import Counter from './components/Counter'
 import MyInput from './components/MyInput'
 import MyCheckBox from './components/MyCheckBox'
+import MyForm from './components/MyForm'
 function App() {
   const todos = [
   ]
@@ -31,6 +32,7 @@ function App() {
       <Counter></Counter>
       <MyInput></MyInput>
       <MyCheckBox></MyCheckBox>
+      <MyForm></MyForm>
     </div>
   )
 }
