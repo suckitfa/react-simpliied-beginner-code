@@ -28,21 +28,21 @@ function App() {
 
   return (
     <div>
-      <MyName name={'my name'} age={19} isProgrammer={true}></MyName>
+      {/* <MyName name={'my name'} age={19} isProgrammer={true}></MyName> */}
       <h1>Todo List</h1>
-      <TodoList todos={todos}></TodoList>
+      {/* <TodoList todos={todos}></TodoList> */}
       {/* User Card */}
-      <UserCard {...userData}></UserCard>
-      <TestUseState></TestUseState>
+      {/* <UserCard {...userData}></UserCard> */}
+      {/* <TestUseState></TestUseState> */}
       <Counter></Counter>
-      <MyInput></MyInput>
-      <MyCheckBox></MyCheckBox>
-      <MyForm></MyForm>
-      <MyClassComp></MyClassComp>
-      <CounterClass></CounterClass>
-      <MyInput2></MyInput2>
-      <MyArray></MyArray>
-      <AgeName></AgeName>
+      {/* <MyInput></MyInput> */}
+      {/* <MyCheckBox></MyCheckBox> */}
+      {/* <MyForm></MyForm> */}
+      {/* <MyClassComp></MyClassComp> */}
+      {/* <CounterClass></CounterClass> */}
+      {/* <MyInput2></MyInput2> */}
+      {/* <MyArray></MyArray> */}
+      {/* <AgeName></AgeName> */}
     </div>
   )
 }
