@@ -11,6 +11,8 @@ import MyCheckBox from './components/MyCheckBox'
 import MyForm from './components/MyForm'
 import MyClassComp from './components/MyClassComp'
 import CounterClass from './components/CouterClass'
+import MyInput2 from './components/MyInput2'
+import MyArray from './components/MyArray'
 function App() {
   const todos = [
   ]
@@ -37,6 +39,8 @@ function App() {
       <MyForm></MyForm>
       <MyClassComp></MyClassComp>
       <CounterClass></CounterClass>
+      <MyInput2></MyInput2>
+      <MyArray></MyArray>
     </div>
   )
 }
