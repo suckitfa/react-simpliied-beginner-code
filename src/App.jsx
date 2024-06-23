@@ -13,6 +13,7 @@ import MyClassComp from './components/MyClassComp'
 import CounterClass from './components/CouterClass'
 import MyInput2 from './components/MyInput2'
 import MyArray from './components/MyArray'
+import AgeName from './components/AgeName'
 function App() {
   const todos = [
   ]
@@ -41,6 +42,7 @@ function App() {
       <CounterClass></CounterClass>
       <MyInput2></MyInput2>
       <MyArray></MyArray>
+      <AgeName></AgeName>
     </div>
   )
 }
