@@ -9,6 +9,8 @@ import Counter from './components/Counter'
 import MyInput from './components/MyInput'
 import MyCheckBox from './components/MyCheckBox'
 import MyForm from './components/MyForm'
+import MyClassComp from './components/MyClassComp'
+import CounterClass from './components/CouterClass'
 function App() {
   const todos = [
   ]
@@ -33,6 +35,8 @@ function App() {
       <MyInput></MyInput>
       <MyCheckBox></MyCheckBox>
       <MyForm></MyForm>
+      <MyClassComp></MyClassComp>
+      <CounterClass></CounterClass>
     </div>
   )
 }
