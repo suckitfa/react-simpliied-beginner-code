@@ -14,6 +14,7 @@ import CounterClass from './components/CouterClass'
 import MyInput2 from './components/MyInput2'
 import MyArray from './components/MyArray'
 import AgeName from './components/AgeName'
+import MyUseEffect from './components/MyUseEffect'
 function App() {
   const todos = [
   ]
@@ -34,7 +35,7 @@ function App() {
       {/* User Card */}
       {/* <UserCard {...userData}></UserCard> */}
       {/* <TestUseState></TestUseState> */}
-      <Counter></Counter>
+      {/* <Counter></Counter> */}
       {/* <MyInput></MyInput> */}
       {/* <MyCheckBox></MyCheckBox> */}
       {/* <MyForm></MyForm> */}
@@ -43,6 +44,7 @@ function App() {
       {/* <MyInput2></MyInput2> */}
       {/* <MyArray></MyArray> */}
       {/* <AgeName></AgeName> */}
+      <MyUseEffect></MyUseEffect>
     </div>
   )
 }
