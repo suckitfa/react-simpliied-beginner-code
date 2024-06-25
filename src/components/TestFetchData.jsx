@@ -22,7 +22,7 @@ function TestFetchData() {
                 setUsers(data)
             })
             .catch(e => {
-                if (e?.name === 'AbourtError') return
+                if (e?.name === 'AbortError') return
                 setError(e)
             })
             .finally(() => {
@@ -36,7 +36,7 @@ function TestFetchData() {
     let jsx
     if (loading) jsx = <h2>Loading....</h2>
     else if (error != null) jsx = <h2>Error....</h2>
-    else jsx = (<ul>{users.map(i => (<li>{i.name}</li>))}</ul>)
+    else jsx = (<ul>{users.map(i => (<li key={i.name}>{i.name}</li>))}</ul>)
 
     return (
         <div>
