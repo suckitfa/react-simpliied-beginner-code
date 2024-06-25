@@ -6,9 +6,11 @@ function TestFetchData() {
     const [error, setError] = useState(null)
 
     const API_URL = 'https://jsonplaceholder.typicode.com/users'
-
     useEffect(() => {
-        fetch(API_URL)
+        const controller = new AbortController();
+        fetch(API_URL, {
+            signal: controller.signal
+        })
             .then(res => {
                 if (res.status === 200) {
                     return res.json()
@@ -19,10 +21,16 @@ function TestFetchData() {
             .then(data => {
                 setUsers(data)
             })
-            .catch(e => setError(e))
+            .catch(e => {
+                if (e?.name === 'AbourtError') return
+                setError(e)
+            })
             .finally(() => {
                 setLoading(false)
             })
+        return () => {
+            controller.abort()
+        }
     }, [])
 
     let jsx
