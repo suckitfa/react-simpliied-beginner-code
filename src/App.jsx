@@ -15,6 +15,7 @@ import MyInput2 from './components/MyInput2'
 import MyArray from './components/MyArray'
 import AgeName from './components/AgeName'
 import MyUseEffect from './components/MyUseEffect'
+import TestFetchData from './components/TestFetchData'
 function App() {
   const todos = [
   ]
@@ -44,7 +45,8 @@ function App() {
       {/* <MyInput2></MyInput2> */}
       {/* <MyArray></MyArray> */}
       {/* <AgeName></AgeName> */}
-      <MyUseEffect></MyUseEffect>
+      {/* <MyUseEffect></MyUseEffect> */}
+      <TestFetchData></TestFetchData>
     </div>
   )
 }
