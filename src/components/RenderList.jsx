@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 function RenderList() {
     const getNewItem = () => ({ id: crypto.randomUUID(), name: 'New item' });
     const [items, setItems] = useState([
@@ -12,15 +12,15 @@ function RenderList() {
     return (
         <div>
             <button onClick={addItem}>Add Item</button>
-            <pre>
-                {
-                    items.map(item => (<div key={item.id}>
+            {
+                items.map(item => (<React.Fragment key={item.id}>
+                    <div>
                         <span>{item.name}</span>
                         <input type="text" />
-                    </div>))
-                }
-            </pre>
-        </div>
+                    </div>
+                </React.Fragment>))
+            }
+        </div >
     )
 }
 
