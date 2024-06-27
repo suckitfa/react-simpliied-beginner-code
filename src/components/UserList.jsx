@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import User from './User'
 function UserList() {
     const [users, setUsers] = useState([])
     const [loading, setLoading] = useState(false)
@@ -24,8 +24,9 @@ function UserList() {
     const loadingJSX = (<h4>Loading.......</h4>)
     return (
         <ul>
-            {loading ? loadingJSX : users.map(user => <li key={user.id}>{user.name}</li>)}
-        </ul>
+            {loading ? loadingJSX : users.map(user => <User {...user} key={user.id}></User>)
+            }
+        </ul >
 
     )
 }
