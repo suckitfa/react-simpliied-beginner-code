@@ -17,6 +17,7 @@ import AgeName from './components/AgeName'
 import MyUseEffect from './components/MyUseEffect'
 import TestFetchData from './components/TestFetchData'
 import RenderList from './components/RenderList'
+import UserList from './components/UserList'
 function App() {
   const todos = [
   ]
@@ -48,7 +49,8 @@ function App() {
       {/* <AgeName></AgeName> */}
       {/* <MyUseEffect></MyUseEffect> */}
       {/* <TestFetchData></TestFetchData> */}
-      <RenderList></RenderList>
+      {/* <RenderList></RenderList> */}
+      <UserList></UserList>
     </div>
   )
 }
