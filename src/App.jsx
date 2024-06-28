@@ -18,6 +18,7 @@ import MyUseEffect from './components/MyUseEffect'
 import TestFetchData from './components/TestFetchData'
 import RenderList from './components/RenderList'
 import UserList from './components/UserList'
+import SimpleTodoList from './components/SimpleTodoList'
 function App() {
   const todos = [
   ]
@@ -50,7 +51,8 @@ function App() {
       {/* <MyUseEffect></MyUseEffect> */}
       {/* <TestFetchData></TestFetchData> */}
       {/* <RenderList></RenderList> */}
-      <UserList></UserList>
+      {/* <UserList></UserList> */}
+      <SimpleTodoList></SimpleTodoList>
     </div>
   )
 }
