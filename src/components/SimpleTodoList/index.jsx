@@ -18,7 +18,7 @@ function Index() {
 
     const addBtnClick = () => {
         if (!name) {
-            window.alert('Name should not be empty!')
+            // window.alert('Name should not be empty!')
             return
         }
         setTodos(curTodos => [...curTodos, {
@@ -29,18 +29,26 @@ function Index() {
         setName('')
     }
 
-    const delFunc = (index) => {
-        setTodos(curTodos => {
-            return curTodos.splice(index, 1)
-        })
+    const delTodo = (id) => {
+        setTodos(curTodos => curTodos.filter(todo => todo.id !== id))
+    }
+
+    const toggleTodo = (id) => {
+        setTodos(curTodos => curTodos.map(todo => ({
+            ...todo,
+            checked: !todo.checked
+        })))
     }
     return (
         <>
             <h1>Simple Todo List</h1>
+
             <ul className="list-item">
-                {todos.map((todo, index) => (<TodoItem delFunc={delFunc} key={todo.id} index={index} {...todo}></TodoItem>))}
+                {todos.map((todo, index) => (<TodoItem
+                    toggleTodo={toggleTodo}
+                    delTodo={delTodo} key={todo.id} index={index} {...todo}></TodoItem>))}
             </ul>
-            {/* Buttons */}
+
             <div id="new-todo-form">
                 <label for="todo-input">New Todo</label>
                 <input type="text" id="todo-input" value={name} onChange={e => setName(e.target.value)} />
@@ -53,16 +61,17 @@ function Index() {
 function TodoItem({
     name,
     checked,
-    index,
-    delFunc
+    id,
+    delTodo,
+    toggleTodo,
 }) {
     return (
         <li className="list-item">
             <label className="list-item-label">
-                <input type="checkbox" data-list-item-checkbox checked={checked} />
+                <input type="checkbox" data-list-item-checkbox checked={checked} onChange={() => toggleTodo(id)} />
                 <span data-list-item-text>{name}</span>
             </label>
-            <button data-button-delete onClick={() => delFunc(index)}>Delete</button>
+            <button data-button-delete onClick={() => delTodo(id)}>Delete</button>
         </li>
     )
 }
