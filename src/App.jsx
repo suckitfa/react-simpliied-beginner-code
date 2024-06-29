@@ -19,6 +19,7 @@ import TestFetchData from './components/TestFetchData'
 import RenderList from './components/RenderList'
 import UserList from './components/UserList'
 import SimpleTodoList from './components/SimpleTodoList'
+import TestUseRef from './components/TestUseRef'
 function App() {
   const todos = [
   ]
@@ -34,7 +35,7 @@ function App() {
   return (
     <div>
       {/* <MyName name={'my name'} age={19} isProgrammer={true}></MyName> */}
-      <h1>Todo List</h1>
+      {/* <h1>Todo List</h1> */}
       {/* <TodoList todos={todos}></TodoList> */}
       {/* User Card */}
       {/* <UserCard {...userData}></UserCard> */}
@@ -52,7 +53,8 @@ function App() {
       {/* <TestFetchData></TestFetchData> */}
       {/* <RenderList></RenderList> */}
       {/* <UserList></UserList> */}
-      <SimpleTodoList></SimpleTodoList>
+      {/* <SimpleTodoList></SimpleTodoList> */}
+      <TestUseRef></TestUseRef>
     </div>
   )
 }
