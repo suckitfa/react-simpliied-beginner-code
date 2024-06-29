@@ -1,8 +1,24 @@
 import { useState } from "react"
 
+/**
+ * @description toggle a boolean value
+ * @param {boolean} initVal
+ * @returns {Array} [value,toggleValue]
+*/
+function useToggle(initVal) {
+    const [value, setValue] = useState(initVal)
+    const toggleValue = () => {
+        setValue(cur => !cur)
+    }
+    return [
+        value,
+        toggleValue
+    ]
+}
 
 function index() {
-    const [isDarkMode, setIsDarkMode] = useState(false)
+    // const [isDarkMode, setIsDarkMode] = useState(false)
+    const [isDarkMode, toggleDarkMode] = useToggle(false)
     return (
         <>
             <div style={
@@ -19,7 +35,7 @@ function index() {
                 </label>
                 <br />
                 <br />
-                <button onClick={() => setIsDarkMode(cur => !cur)}>Toggle Dark Mode</button>
+                <button onClick={toggleDarkMode}>Toggle Dark Mode</button>
             </div>
         </>
     )
