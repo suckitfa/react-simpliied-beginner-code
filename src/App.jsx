@@ -21,6 +21,7 @@ import UserList from './components/UserList'
 import SimpleTodoList from './components/SimpleTodoList'
 import TestUseRef from './components/TestUseRef'
 import TestUseMemo from './components/TestUseMemo'
+import TestUseCallback from './components/TestUseCallback'
 function App() {
   const todos = [
   ]
@@ -56,7 +57,8 @@ function App() {
       {/* <UserList></UserList> */}
       {/* <SimpleTodoList></SimpleTodoList> */}
       {/* <TestUseRef></TestUseRef> */}
-      <TestUseMemo></TestUseMemo>
+      {/* <TestUseMemo></TestUseMemo> */}
+      <TestUseCallback></TestUseCallback>
     </div>
   )
 }
