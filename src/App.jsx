@@ -20,6 +20,7 @@ import RenderList from './components/RenderList'
 import UserList from './components/UserList'
 import SimpleTodoList from './components/SimpleTodoList'
 import TestUseRef from './components/TestUseRef'
+import TestUseMemo from './components/TestUseMemo'
 function App() {
   const todos = [
   ]
@@ -54,7 +55,8 @@ function App() {
       {/* <RenderList></RenderList> */}
       {/* <UserList></UserList> */}
       {/* <SimpleTodoList></SimpleTodoList> */}
-      <TestUseRef></TestUseRef>
+      {/* <TestUseRef></TestUseRef> */}
+      <TestUseMemo></TestUseMemo>
     </div>
   )
 }
