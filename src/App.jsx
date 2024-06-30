@@ -25,6 +25,7 @@ import TestUseCallback from './components/TestUseCallback'
 import SelfHooks from './components/SelfHooks'
 import TestUseFetch from './components/TestUseFetch'
 import TestUseArray from './components/TestUseArray'
+import TestUseLocalStorage from './components/TestUseLocalStorage'
 function App() {
   const todos = [
   ]
@@ -64,7 +65,8 @@ function App() {
       {/* <TestUseCallback></TestUseCallback> */}
       {/* <SelfHooks></SelfHooks> */}
       {/* <TestUseFetch></TestUseFetch> */}
-      <TestUseArray></TestUseArray>
+      {/* <TestUseArray></TestUseArray> */}
+      <TestUseLocalStorage></TestUseLocalStorage>
     </div>
   )
 }
