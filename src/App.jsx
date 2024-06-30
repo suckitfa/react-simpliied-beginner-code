@@ -27,6 +27,7 @@ import TestUseFetch from './components/TestUseFetch'
 import TestUseArray from './components/TestUseArray'
 import TestUseLocalStorage from './components/TestUseLocalStorage'
 import FormValidation from './components/FormValidation'
+import TestUseReactHookForm from './components/TestReactHookForm/index.jsx'
 function App() {
   const todos = [
   ]
@@ -68,7 +69,8 @@ function App() {
       {/* <TestUseFetch></TestUseFetch> */}
       {/* <TestUseArray></TestUseArray> */}
       {/* <TestUseLocalStorage></TestUseLocalStorage> */}
-      <FormValidation></FormValidation>
+      {/* <FormValidation></FormValidation> */}
+      <TestUseReactHookForm></TestUseReactHookForm>
     </div>
   )
 }
