@@ -1,21 +1,20 @@
 import { useEffect, useState } from "react"
 
 export default function useLocalStorage(key, initVal) {
-    const [value, setValue] = useState(initVal)
-
-    // pulled the value from the inital load from the localStorage
-    useEffect(() => {
+    // we can pass a func to the setState
+    const [value, setValue] = useState(() => {
         const localVal = localStorage.getItem(key)
-        if (localVal) {
-            setValue(localVal)
-        } else {
-            return initVal
+        if (localVal) return JSON.parse(localVal)
+        else {
+            // the initVal maybe a func or a pure val
+            return typeof initVal === 'function' ? initVal() : initVal
         }
-    }, [])
+    })
+
 
     // when value change store it into the localStorage
     useEffect(() => {
-        localStorage.setItem(key, value)
+        localStorage.setItem(key, JSON.stringify(value))
     }, [value])
 
     return [
