@@ -1,14 +1,14 @@
 const INITIAL_ARRAY = [1, 2, 3]
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 // const INITIAL_ARRAY = () => [1, 2, 3]
 import useArray from '../hooks/useArray'
 function App() {
     const { array, set, push, replace, filter, remove, clear, reset } =
         useArray(INITIAL_ARRAY)
 
-    useEffect(() => {
-        console.log('array ', array)
-    }, array)
+    // useEffect(() => {
+    //     console.log('array ', array)
+    // }, array)
     return (
         <>
             <div>{array.join(", ")}</div>
@@ -19,7 +19,7 @@ function App() {
                     gap: ".5rem",
                     alignItems: "flex-start",
                     marginTop: "1rem",
-                    border: '1px solid black;'
+                    border: '1px solid black'
                 }}
             >
                 <button onClick={() => set([4, 5, 6])}>Set to [4, 5, 6]</button>

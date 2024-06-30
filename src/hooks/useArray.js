@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useCallback, useRef, useState } from "react"
 
 function useArray(initArr = []) {
     // to store the init Array
@@ -10,27 +10,27 @@ function useArray(initArr = []) {
     //     setArr(newArr)
     // }
 
-    const push = (ele) => {
+    const push = useCallback(ele => {
         setArr(curArr => [...curArr, ele])
-    }
+    }, [])
 
     //muti ways to implement this
-    const replace = (index, ele) => {
+    const replace = useCallback((index, ele) => {
         setArr(curArr => {
             return curArr.map((item, k) => {
                 if (index === k) return ele;
                 return item;
             })
         })
-    }
+    }, [])
 
-    const remove = (index) => {
+    const remove = useCallback((index) => {
         setArr(curArr => curArr.filter((_, i) => i !== index))
-    }
+    }, [])
 
-    const filter = (func) => {
+    const filter = useCallback((func) => {
         setArr(curArr => curArr.filter(func))
-    }
+    }, [])
 
     const reset = () => {
         setArr(initArrayRef.current)
