@@ -5,8 +5,8 @@ import './style.css'
 export default function index() {
     return (
         <>
-            <StateForm></StateForm>
-            {/* <RefForm></RefForm> */}
+            {/* <StateForm></StateForm> */}
+            <RefForm></RefForm>
         </>
     )
 }
