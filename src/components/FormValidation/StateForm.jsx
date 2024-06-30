@@ -1,21 +1,30 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { validateEmail, validatePassword } from './validate'
 export default function StateForm() {
 
 
     const [password, setPassword] = useState()
     const [email, setEmail] = useState()
-    const [emailErrors, setEmailErrors] = useState([])
-    const [passwordErrors, setPasswordErrors] = useState([])
 
-    const [isFirstSubmit, setIsFirstSubmit] = useState(true)
+    const [isNotFirstSubmit, setIsNotFirstSubmit] = useState(false)
+
+    const passwordErrors = useMemo(() => {
+        return isNotFirstSubmit ? validatePassword(password) : []
+    }, [isNotFirstSubmit, password])
+
+    const emailErrors = useMemo(() => {
+        return isNotFirstSubmit ? validateEmail(email) : []
+    }, [isNotFirstSubmit, email])
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setIsFirstSubmit(false)
-        setEmailErrors(validateEmail(email))
-        setPasswordErrors(validatePassword(password))
-        if (!emailErrors.length && !passwordErrors.length) {
+
+        setIsNotFirstSubmit(true)
+
+        const emailResult = validateEmail(email)
+        const passwordResult = validatePassword(password)
+
+        if (!emailResult.length && !passwordResult.length) {
             alert('Success')
         }
     }
@@ -23,10 +32,7 @@ export default function StateForm() {
         <form className="form" onSubmit={handleSubmit}>
             <div className={`form-group ${emailErrors.length > 0 ? "error" : ""}`}>
                 <label className="label" htmlFor="email">Email</label>
-                <input className="input" type="email" id="email" value={email} onChange={e => {
-                    setEmail(e.target.value)
-                    !isFirstSubmit && setEmailErrors(validateEmail(email))
-                }} />
+                <input className="input" type="email" id="email" value={email} onChange={e => setEmail(e.target.value)} />
                 {emailErrors.length > 0 && (<div className="msg">{emailErrors.join(',')}</div>)}
             </div>
             <div className={`form-group ${passwordErrors.length > 0 ? "error" : ""}`}>
@@ -36,10 +42,7 @@ export default function StateForm() {
                     value={password}
                     type="password"
                     id="password"
-                    onChange={e => {
-                        setPassword(e.target.value)
-                        !isFirstSubmit && setPasswordErrors(validatePassword(password))
-                    }}
+                    onChange={e => setPassword(e.target.value)}
                 />
                 {passwordErrors.length > 0 && (<div className="msg">{passwordErrors.join(',')}</div>)}
             </div>
