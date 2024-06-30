@@ -1,31 +1,35 @@
 import { useEffect, useState } from "react"
 
-const useFetch = async (url) => {
+const useFetch = (url) => {
     const [data, setData] = useState()
-    const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
-    const controller = new AbortController()
+    const [isLoading, setIsLoading] = useState(true)
 
-    useEffect(() => {
-        setData(undefined)
-        setIsError(false)
-        setIsLoading(true)
+    // const controller = new AbortController()
 
-        fetch(url, {
-            signal: controller.signal
-        })
-            .then(res => res.json())
-            .then(setData)
-            .catch(() => setIsError(true))
-            .finally(() => setIsLoading(false))
+    // useEffect(() => {
+    //     setData(undefined)
+    //     setIsError(false)
+    //     setIsLoading(true)
 
-        return () => controller.abort()
-    }, [url])
-    return {
-        data,
-        isLoading,
-        isError
-    }
+    //     fetch(url, {
+    //         signal: controller.signal
+    //     })
+    //         .then(res => res.json())
+    //         .then(d => {
+    //             console.log('setData = ', d)
+    //             setData(d)
+    //         })
+    //         .catch((err) => {
+    //             if (err.name !== 'AbortError') {
+    //                 setIsError(true)
+    //             }
+    //         })
+    //         .finally(() => setIsLoading(false))
+
+    //     return () => controller.abort()
+    // }, [url])
+    return { data, isError, isLoading }
 }
 
 export default useFetch
