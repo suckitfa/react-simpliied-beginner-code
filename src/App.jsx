@@ -26,6 +26,7 @@ import SelfHooks from './components/SelfHooks'
 import TestUseFetch from './components/TestUseFetch'
 import TestUseArray from './components/TestUseArray'
 import TestUseLocalStorage from './components/TestUseLocalStorage'
+import FormValidation from './components/FormValidation'
 function App() {
   const todos = [
   ]
@@ -66,7 +67,8 @@ function App() {
       {/* <SelfHooks></SelfHooks> */}
       {/* <TestUseFetch></TestUseFetch> */}
       {/* <TestUseArray></TestUseArray> */}
-      <TestUseLocalStorage></TestUseLocalStorage>
+      {/* <TestUseLocalStorage></TestUseLocalStorage> */}
+      <FormValidation></FormValidation>
     </div>
   )
 }
