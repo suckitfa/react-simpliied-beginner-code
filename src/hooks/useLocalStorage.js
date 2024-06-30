@@ -14,7 +14,12 @@ export default function useLocalStorage(key, initVal) {
 
     // when value change store it into the localStorage
     useEffect(() => {
-        localStorage.setItem(key, JSON.stringify(value))
+        if (value === undefined) {
+            localStorage.removeItem(key)
+        } else {
+            // localStorage only takes in strings
+            localStorage.setItem(key, JSON.stringify(value))
+        }
     }, [value])
 
     return [
