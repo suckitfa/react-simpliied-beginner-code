@@ -1,6 +1,6 @@
 import React from 'react'
 import TodoList from './components/TodoList'
-import './App.css'
+// import './App.css'
 import MyName from './components/NameFun'
 import userData from './components/UserCard/user.json'
 import UserCard from './components/UserCard'
@@ -24,6 +24,7 @@ import TestUseMemo from './components/TestUseMemo'
 import TestUseCallback from './components/TestUseCallback'
 import SelfHooks from './components/SelfHooks'
 import TestUseFetch from './components/TestUseFetch'
+import TestUseArray from './components/TestUseArray'
 function App() {
   const todos = [
   ]
@@ -62,7 +63,8 @@ function App() {
       {/* <TestUseMemo></TestUseMemo> */}
       {/* <TestUseCallback></TestUseCallback> */}
       {/* <SelfHooks></SelfHooks> */}
-      <TestUseFetch></TestUseFetch>
+      {/* <TestUseFetch></TestUseFetch> */}
+      <TestUseArray></TestUseArray>
     </div>
   )
 }
