@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import TodoList from './components/TodoList'
 // import './App.css'
 import MyName from './components/NameFun'
@@ -29,6 +29,9 @@ import TestUseLocalStorage from './components/TestUseLocalStorage'
 import FormValidation from './components/FormValidation'
 import TestUseReactHookForm from './components/TestReactHookForm/index.jsx'
 import TestUseReducer2 from './components/TestUseReducer2.jsx'
+import TestUseConText from './components/TestUseContext'
+export const ThemeContext = createContext()
+
 function App() {
   const todos = [
   ]
@@ -40,9 +43,20 @@ function App() {
     }
   }
   initTodos();
+  const [isDarkMode, setIsDarkMode] = useState(false)
+  function toggleTheme() {
+    setIsDarkMode(d => !d)
+  }
+  useEffect(() => {
+    document.body.style.background = isDarkMode ? '#333' : 'white'
+    document.body.color = isDarkMode ? 'white' : '#333'
+  }, [isDarkMode])
 
   return (
-    <div>
+    <ThemeContext.Provider value={{
+      isDarkMode,
+      toggleTheme
+    }}>
       {/* <MyName name={'my name'} age={19} isProgrammer={true}></MyName> */}
       {/* <h1>Todo List</h1> */}
       {/* <TodoList todos={todos}></TodoList> */}
@@ -72,8 +86,9 @@ function App() {
       {/* <TestUseLocalStorage></TestUseLocalStorage> */}
       {/* <FormValidation></FormValidation> */}
       {/* <TestUseReactHookForm></TestUseReactHookForm> */}
-      <TestUseReducer2></TestUseReducer2>
-    </div>
+      {/* <TestUseReducer2></TestUseReducer2> */}
+      <TestUseConText></TestUseConText>
+    </ThemeContext.Provider >
   )
 }
 
