@@ -30,6 +30,7 @@ import FormValidation from './components/FormValidation'
 import TestUseReactHookForm from './components/TestReactHookForm/index.jsx'
 import TestUseReducer2 from './components/TestUseReducer2.jsx'
 import TestUseConText from './components/TestUseContext'
+import NeverStoreDerviedState from './components/NeverStoreDerviedState.jsx'
 export const ThemeContext = createContext()
 
 function App() {
@@ -87,7 +88,8 @@ function App() {
       {/* <FormValidation></FormValidation> */}
       {/* <TestUseReactHookForm></TestUseReactHookForm> */}
       {/* <TestUseReducer2></TestUseReducer2> */}
-      <TestUseConText></TestUseConText>
+      {/* <TestUseConText></TestUseConText> */}
+      <NeverStoreDerviedState></NeverStoreDerviedState>
     </ThemeContext.Provider >
   )
 }
