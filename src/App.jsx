@@ -49,7 +49,7 @@ function App() {
   }
   useEffect(() => {
     document.body.style.background = isDarkMode ? '#333' : 'white'
-    document.body.color = isDarkMode ? 'white' : '#333'
+    document.body.style.color = isDarkMode ? 'white' : '#333'
   }, [isDarkMode])
 
   return (
