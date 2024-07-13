@@ -1,10 +1,13 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 
 export default function NeverStoreDerviedState() {
     const [items, setItems] = useState([1, 2, 3, 4, 5])
     const [inputValue, setInputValue] = useState("")
 
-    const filteredItems = inputValue ? items.filter(i => i < inputValue) : items
+    // if the calculation is too expensive,you should use a useMemo
+    const filteredItems = useMemo(() => {
+        return inputValue ? items.filter(i => i < inputValue) : items
+    }, [inputValue, items])
     return (
         <>
             <label htmlFor="lessThan">Show Less Than</label>
