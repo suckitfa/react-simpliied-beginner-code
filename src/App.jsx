@@ -28,6 +28,7 @@ import TestUseArray from './components/TestUseArray'
 import TestUseLocalStorage from './components/TestUseLocalStorage'
 import FormValidation from './components/FormValidation'
 import TestUseReactHookForm from './components/TestReactHookForm/index.jsx'
+import TestUseReducer from './components/TestUseReducer.jsx'
 function App() {
   const todos = [
   ]
@@ -70,7 +71,8 @@ function App() {
       {/* <TestUseArray></TestUseArray> */}
       {/* <TestUseLocalStorage></TestUseLocalStorage> */}
       {/* <FormValidation></FormValidation> */}
-      <TestUseReactHookForm></TestUseReactHookForm>
+      {/* <TestUseReactHookForm></TestUseReactHookForm> */}
+      <TestUseReducer></TestUseReducer>
     </div>
   )
 }
