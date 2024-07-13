@@ -2,20 +2,14 @@ import { useState } from "react"
 
 export default function NeverStoreDerviedState() {
     const [items, setItems] = useState([1, 2, 3, 4, 5])
-    const [filteredItems, setFilteredItems] = useState([])
+    const [inputValue, setInputValue] = useState("")
 
-    function updateFilteredItems(e) {
-        if (e.target.value === "") {
-            setFilteredItems(items)
-        } else {
-            setFilteredItems(items.filter(item => item < e.target.valueAsNumber))
-
-        }
-    }
+    const filteredItems = inputValue ? items.filter(i => i < inputValue) : items
     return (
         <>
             <label htmlFor="lessThan">Show Less Than</label>
-            <input type="number" id="lessThan" onChange={updateFilteredItems} />
+            <input
+                type="number" id="lessThan" onInput={e => setInputValue(e.target.valueAsNumber)} value={inputValue} />
             <br />
             <br />
             <div>
