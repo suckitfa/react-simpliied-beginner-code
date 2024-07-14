@@ -31,6 +31,7 @@ import TestUseReactHookForm from './components/TestReactHookForm/index.jsx'
 import TestUseReducer2 from './components/TestUseReducer2.jsx'
 import TestUseConText from './components/TestUseContext'
 import NeverStoreDerviedState from './components/NeverStoreDerviedState.jsx'
+import TestUseEnvVar from './components/TestUseEnvVar.jsx'
 export const ThemeContext = createContext()
 
 function App() {
@@ -89,7 +90,8 @@ function App() {
       {/* <TestUseReactHookForm></TestUseReactHookForm> */}
       {/* <TestUseReducer2></TestUseReducer2> */}
       {/* <TestUseConText></TestUseConText> */}
-      <NeverStoreDerviedState></NeverStoreDerviedState>
+      {/* <NeverStoreDerviedState></NeverStoreDerviedState> */}
+      <TestUseEnvVar></TestUseEnvVar>
     </ThemeContext.Provider >
   )
 }
