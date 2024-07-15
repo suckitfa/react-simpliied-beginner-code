@@ -1,6 +1,6 @@
-import { useEffect, useReducer, useState } from "react"
+import { createContext, useEffect, useReducer, } from "react"
+import TodoList from "./TodoList"
 import "./styles.css"
-import { TodoItem } from "./TodoItem"
 import NewTodoForm from './NewTodoForm'
 const ACTIONS = {
     ADD: 'ADD',
@@ -35,6 +35,8 @@ function reducer(todos, { type, payload }) {
             throw new Error('Action not found!')
     }
 }
+
+export const TodoContext = createContext()
 
 function App() {
 
@@ -78,7 +80,12 @@ function App() {
     }
 
     return (
-        <>
+        <TodoContext.Provider value={{
+            todos,
+            toggleTodo,
+            deleteTodo,
+            addNewTodo
+        }}>
             <div className="filter-form">
                 <div className="filter-form-group">
                     <label htmlFor="name">Name</label>
@@ -89,21 +96,11 @@ function App() {
                     Hide Completed
                 </label>
             </div>
-            <ul id="list">
-                {todos.map(todo => {
-                    return (
-                        <TodoItem
-                            key={todo.id}
-                            {...todo}
-                            toggleTodo={toggleTodo}
-                            deleteTodo={deleteTodo}
-                        />
-                    )
-                })}
-            </ul>
 
-            <NewTodoForm addNewTodo={addNewTodo}></NewTodoForm>
-        </>
+            <TodoList />
+
+            <NewTodoForm />
+        </TodoContext.Provider>
     )
 }
 

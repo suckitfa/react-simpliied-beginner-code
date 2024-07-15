@@ -1,4 +1,10 @@
-export function TodoItem({ id, name, completed, toggleTodo, deleteTodo, editTodo }) {
+import { useContext } from "react"
+import { TodoContext } from "."
+
+export default function TodoItem({ id, name, completed }) {
+    const {
+        toggleTodo, deleteTodo, editTodo
+    } = useContext(TodoContext)
     return (
         <li className="list-item">
             <label className="list-item-label">
