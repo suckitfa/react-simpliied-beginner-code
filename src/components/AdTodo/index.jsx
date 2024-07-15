@@ -1,7 +1,7 @@
 import { useEffect, useReducer, useState } from "react"
 import "./styles.css"
 import { TodoItem } from "./TodoItem"
-
+import NewTodoForm from './NewTodoForm'
 const ACTIONS = {
     ADD: 'ADD',
     EDIT: 'EDIT',
@@ -37,7 +37,6 @@ function reducer(todos, { type, payload }) {
 }
 
 function App() {
-    const [newTodoName, setNewTodoName] = useState("")
 
     const [todos, dispatch] = useReducer(reducer, [], initialValue => {
         const value = localStorage.getItem(LOCAL_STORAGE_KEY)
@@ -49,9 +48,7 @@ function App() {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
     }, [todos])
 
-    function addNewTodo() {
-        if (newTodoName === "") return
-
+    function addNewTodo(newTodoName) {
         dispatch({
             type: ACTIONS.ADD,
             payload: {
@@ -60,7 +57,6 @@ function App() {
                 }
             }
         })
-        setNewTodoName("")
     }
 
     function toggleTodo(todoId) {
@@ -106,16 +102,7 @@ function App() {
                 })}
             </ul>
 
-            <div id="new-todo-form">
-                <label htmlFor="todo-input">New Todo</label>
-                <input
-                    type="text"
-                    id="todo-input"
-                    value={newTodoName}
-                    onChange={e => setNewTodoName(e.target.value)}
-                />
-                <button onClick={addNewTodo}>Add Todo</button>
-            </div>
+            <NewTodoForm addNewTodo={addNewTodo}></NewTodoForm>
         </>
     )
 }
