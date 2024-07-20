@@ -1,8 +1,9 @@
-import { useContext, useState } from "react"
-import { TodoContext } from "."
+
 
 export default function TodoFilterForm({
-    name, setName
+    name, setName,
+    hideCompleted,
+    setHideCompleted,
 }) {
     return (
         <div className="filter-form">
@@ -11,7 +12,10 @@ export default function TodoFilterForm({
                 <input type="text" id="name" value={name} onChange={e => setName(e.target.value)} />
             </div>
             <label>
-                <input type="checkbox" />
+                <input type="checkbox"
+                    checked={hideCompleted}
+                    onChange={e => setHideCompleted(e.target.checkValidity)}
+                />
                 Hide Completed
             </label>
         </div>

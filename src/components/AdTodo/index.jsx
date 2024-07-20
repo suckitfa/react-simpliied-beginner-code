@@ -49,13 +49,16 @@ function App() {
     });
 
     const [filterName, setFilterName] = useState('')
-    const [hideCompletedFilter, setHideCompletedFilter] = useState(false)
+    const [hideCompletedFilter, setHideCompletedFilter] = useState(false) // 是否隐藏completed
 
     useEffect(() => {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
     }, [todos])
 
-    const filterTodos = todos.filter(todo => todo.name.includes(filterName))
+    const filterTodos = todos.filter(todo => {
+        if (hideCompletedFilter && todo.completed) return false;
+        return todo.name.includes(filterName)
+    })
 
     function addNewTodo(newTodoName) {
         dispatch({
