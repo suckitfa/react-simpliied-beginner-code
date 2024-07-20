@@ -20,6 +20,17 @@ function reducer(todos, { type, payload }) {
                 ...todos,
                 payload.value
             ]
+        case ACTIONS.EDIT:
+            return todos.map(todo => {
+                if (todo.id === payload.id) {
+                    return {
+                        ...todo,
+                        name: payload.name
+                    }
+                } else {
+                    return todo;
+                }
+            })
         case ACTIONS.DELETE:
             return todos.filter(todo => todo.id !== payload.id)
         case ACTIONS.TOGGLE:
@@ -89,12 +100,22 @@ function App() {
         })
     }
 
+    function editTodo(id, name) {
+        dispatch({
+            type: ACTIONS.EDIT,
+            payload: {
+                id,
+                name
+            }
+        })
+    }
     return (
         <TodoContext.Provider value={{
             todos: filterTodos,
             toggleTodo,
             deleteTodo,
-            addNewTodo
+            addNewTodo,
+            editTodo
         }}>
             <TodoFilterForm
                 name={filterName}
